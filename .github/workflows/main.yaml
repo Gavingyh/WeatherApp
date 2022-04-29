@@ -28,7 +28,7 @@ jobs:
       with: 
         maven-version: 3.8.2  
     - name: Checkout the source
-      uses: action/checkout@v3
+      uses: actions/checkout@v3
 
     - name: run test
       run: mvn clean test
