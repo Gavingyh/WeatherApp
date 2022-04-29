@@ -5,15 +5,17 @@ on:
     - "deploy"
 jobs:
   echo_the_date:
-  runs-on: ubuntu-latest
-  steps:
-  - name: echo the date
-    run: echo "The current date and time is $(date)"
-  - name: echo the current branch
-    run: echo ${{github.ref_name}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo the date
+      run: echo "The current date and time is $(date)"
+    - name: echo the current branch
+      run: echo ${{github.ref_name}}
 
   test_and_deploy:
     runs-on: ubuntu-latest
+    env: 
+      OPENWEATHER_API: ${{secrets.openweathermap_api}}
     steps:
     - name: Setup JDK 17
       uses: actions/setup-java@v3
