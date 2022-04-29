@@ -1,0 +1,11 @@
+name: My First WorkFlow
+on:
+  push:
+jobs:
+  echo_the_date:
+  runs-on: ubuntu-latest
+  steps:
+  - name: echo the date
+    run: echo "The current date and time is $(date)"
+  - name: echo the current branch
+    run: echo ${{github.ref_name}}
