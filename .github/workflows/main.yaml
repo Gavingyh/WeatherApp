@@ -2,7 +2,7 @@ name: My First WorkFlow
 on:
   push:
     branches:
-    - "release"
+    - "main"
 jobs:
   echo_the_date:
   runs-on: ubuntu-latest
