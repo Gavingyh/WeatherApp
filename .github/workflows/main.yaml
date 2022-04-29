@@ -2,7 +2,7 @@ name: My First WorkFlow
 on:
   push:
     branches:
-    - "deploy"
+    - "main"
 jobs:
   echo_the_date:
     runs-on: ubuntu-latest
@@ -22,6 +22,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+
     - name: Setup maven
       uses: stCarolas/setup-maven@v4.3
       with: 
@@ -31,3 +32,14 @@ jobs:
 
     - name: run test
       run: mvn clean test
+
+    - name: deply to heroku
+    - uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.EMAIL}}
+
+
+
+      
